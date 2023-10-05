@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import '../../app_export.dart';
 import '../../base_class/base_raisedButton.dart';
 import '../../base_class/base_textfield.dart';
+import '../../utils/global.dart';
 
 class SignUpView extends StatelessWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -60,7 +61,7 @@ class SignUpView extends StatelessWidget {
               ),
               const SizedBox(height: 10,),
               BaseTextField.textField(
-                controller: _.email,
+                controller: Global.email,
                 textInputType: TextInputType.emailAddress,
                 placeholder: BookStoreString.emailHint,
                 //prefix: IconPath.user,
@@ -74,7 +75,7 @@ class SignUpView extends StatelessWidget {
               ),
               const SizedBox(height: 10,),
               BaseTextField.textField(
-                  controller: _.password,
+                  controller: Global.password,
                   placeholder: BookStoreString.passwordHint,
                   obscureText: (_.onPasswordShow) ? true : false,
                   suffix: IconButton(onPressed: (){
@@ -91,7 +92,7 @@ class SignUpView extends StatelessWidget {
               ),
               const SizedBox(height: 10,),
               BaseTextField.textField(
-                  controller: _.confirmPassword,
+                  controller: Global.confirmPassword,
                   placeholder: BookStoreString.confirmPassword,
                   obscureText: (_.onConfirmPasswordShow) ? true : false,
                   suffix: IconButton(onPressed: (){

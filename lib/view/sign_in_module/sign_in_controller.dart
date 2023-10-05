@@ -2,9 +2,11 @@ import 'package:book_store/app_export.dart';
 import 'package:book_store/view/homepage_module/homepage_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../utils/global.dart';
+
 class SignInController extends GetxController{
 
-  TextEditingController email = TextEditingController(), password = TextEditingController();
+  //TextEditingController email = TextEditingController(), password = TextEditingController();
 
   bool onPasswordShow = false;
 
@@ -14,19 +16,19 @@ class SignInController extends GetxController{
   }
 
   checkValidation(){
-    if(email.text.trim().isEmpty)
+    if(Global.email.text.trim().isEmpty)
     {
       Utils.showToast("Please Enter Email");
     }
-    else  if(password.text.trim().isEmpty)
+    else  if(Global.password.text.trim().isEmpty)
     {
       Utils.showToast("Please Enter password");
     }
-    else if(Utils.validateEmail(email.text.trim()) != null )
+    else if(Utils.validateEmail(Global.email.text.trim()) != null )
     {
       Utils.showToast("Please Enter Valid Email");
     }
-    else if(password.text.trim().length < 8)
+    else if(Global.password.text.trim().length < 8)
     {
       Utils.showToast("Please Enter Valid password");
     }
@@ -38,8 +40,8 @@ class SignInController extends GetxController{
   performLogin()async{
     try {
       final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email.text.trim(),
-        password: password.text.trim(),
+        email: Global.email.text.trim(),
+        password: Global.password.text.trim(),
       );
 
       final user = credential.user;
@@ -49,8 +51,8 @@ class SignInController extends GetxController{
         Injector.setAuthenticationKeys(user.uid);
         Get.offAll(const HomePageView());
         //Get.offAll(BottomNavigationBarCustom(),transition: Transition.cupertino);
-        email.clear();
-        password.clear();
+        //Global.email.clear();
+        //Global.password.clear();
       } else {
         Utils.showToast("Wrong password provided for that user.");
       }

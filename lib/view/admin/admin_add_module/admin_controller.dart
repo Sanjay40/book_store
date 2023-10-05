@@ -74,7 +74,7 @@ class AdminController extends GetxController{
     return booksData
         .doc(docId[index].id)
         .delete()
-        .then((value) => Get.back())
+        .then((value){})
         .catchError((error) => print("error  : $error"));
   }
 

@@ -4,6 +4,7 @@ import 'package:book_store/view/user_module/user_controller.dart';
 import '../../app_export.dart';
 import '../../base_class/base_dialog.dart';
 import '../../base_class/base_sizedbox.dart';
+import '../../utils/global.dart';
 
 class UserView extends StatelessWidget {
   const UserView({Key? key}) : super(key: key);
@@ -37,7 +38,7 @@ class UserView extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Text("UmangKaklotar@gmail.com" , style: CustomFontStyle.style16PrmW600,),
+              child: Text(Global.email.text , style: CustomFontStyle.style16PrmW600,),
             ),
             //  GestureDetector(
             //   onTap: (){

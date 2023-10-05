@@ -9,6 +9,7 @@ Future<void> main() async {
   Injector injector = Injector();
   runApp(
      GetMaterialApp(
+       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           titleTextStyle: GoogleFonts.poppins(),
